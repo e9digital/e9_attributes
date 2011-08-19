@@ -1,0 +1,6 @@
+en:
+  view: View
+  e9_attributes:
+    add_record_attribute: Add
+    destroy_record_attribute: Remove
+
