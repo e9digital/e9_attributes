@@ -2,6 +2,8 @@ class E9Attributes::MenuOptionsController < Admin::ResourceController
   include E9Rails::Controllers::Sortable
   include E9Rails::Helpers::ResourceLinks
 
+  respond_to :js
+
   defaults :resource_class => MenuOption, :route_prefix => nil
   has_scope :options_for, :as => :key, :only => :index
 
