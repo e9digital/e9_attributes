@@ -1,3 +1,3 @@
 module E9Attributes
-  VERSION = "0.0.1"
+  VERSION = "0.0.2"
 end
