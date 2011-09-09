@@ -43,7 +43,7 @@ module E9Attributes::Model
   end
 
   def build_all_record_attributes
-    record_attributes.each do |attr|
+    self.class.record_attributes.each do |attr|
       params_method = "#{attr}_build_parameters"
       build_params = self.class.send(params_method) if self.class.respond_to?(params_method)
       send(attr).send(:build, build_params || {})
