@@ -1,12 +1,16 @@
 = title (@index_title || e9_t(:index_title))
 
-.toolbar
-  .toolbar-left
+- content_for :toolbar_middle do
+  = toolbar_filters do
     %form{:action => menu_options_path, :method => :get, :class => 'scope-selects'}
-      = label_tag 'menu_option_key_select', t(:view)
+      = label_tag 'menu_option_key_select', t(:filter_by, :attribute => resource_class.human_attribute_name(:key))
       = select_tag 'key', options_for_select(MenuOption.keys.sort, params[:key])
-  .toolbar-right
+
+- content_for :toolbar_right do
+  = toolbar_actions do
     = link_to_new_resource(MenuOption, :menu_option => {:key => params[:key]}, :class => 'new-menu-option')
+
+= render 'shared/admin/toolbar'
 
 = form_tag polymorphic_path([:update_order, resource_class]) do
   %div#records_table
